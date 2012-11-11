@@ -59,8 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Comment.cs" />
-    <Compile Include="Classes\Commenter.cs" />
-    <Compile Include="Classes\CommenterHelper.cs" />
+    <Compile Include="Classes\CommentFile.cs" />
     <Compile Include="DllExport\DllExportAttribute.cs" />
     <Compile Include="Forms\frmComment.cs">
       <SubType>Form</SubType>

@@ -6,6 +6,14 @@ namespace NppPluginNET
 {
     public class Comment
     {
+        private int m_ID = 0;
+
+        public int ID
+        {
+            get { return m_ID; }
+            set { m_ID = value; }
+        }
+        
         private int m_StartLine = 0;
 
         public int StartLine

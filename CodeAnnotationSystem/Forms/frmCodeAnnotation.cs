@@ -23,12 +23,14 @@ namespace NppPluginNET
             {
                 curScintilla = PluginBase.GetCurrentScintilla();
 
-                int selectionStartPos = CommenterHelper.GetSelectionPosition(ref curScintilla, SciMsg.SCI_GETSELECTIONSTART);
-                int selectionEndPos = CommenterHelper.GetSelectionPosition(ref curScintilla, SciMsg.SCI_GETSELECTIONEND);
-                int selectionStartLine = CommenterHelper.GetSelectionLineFromPosition(ref curScintilla, selectionStartPos);
-                int selectionEndLine = CommenterHelper.GetSelectionLineFromPosition(ref curScintilla, selectionEndPos);
-                int selectionStartCol = selectionStartPos - CommenterHelper.GetSelectionPositionFromLine(ref curScintilla, selectionStartLine);
-                int selectionEndCol = selectionEndPos - CommenterHelper.GetSelectionPositionFromLine(ref curScintilla, selectionEndLine);
+                int selectionStartPos = (int)Win32.SendMessage(curScintilla, SciMsg.SCI_GETSELECTIONSTART, 0, 0);
+                int selectionEndPos = (int)Win32.SendMessage(curScintilla, SciMsg.SCI_GETSELECTIONEND, 0, 0);
+
+                int selectionStartLine = (int)Win32.SendMessage(curScintilla, SciMsg.SCI_LINEFROMPOSITION, selectionStartPos, 0);
+                int selectionEndLine = (int)Win32.SendMessage(curScintilla, SciMsg.SCI_LINEFROMPOSITION, selectionEndPos, 0);
+
+                int selectionStartCol = selectionStartPos - (int)Win32.SendMessage(curScintilla, SciMsg.SCI_POSITIONFROMLINE, selectionStartLine, 0);
+                int selectionEndCol = selectionEndPos - (int)Win32.SendMessage(curScintilla, SciMsg.SCI_POSITIONFROMLINE, selectionEndLine, 0);
 
                 Comment comment = new Comment();
 
