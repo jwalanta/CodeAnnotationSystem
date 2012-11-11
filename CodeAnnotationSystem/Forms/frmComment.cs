@@ -25,7 +25,10 @@ namespace NppPluginNET
 
         private void frmAddComment_Load(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(m_Comment.CommentText))
+            {
+                //ToDo: make edit form
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
