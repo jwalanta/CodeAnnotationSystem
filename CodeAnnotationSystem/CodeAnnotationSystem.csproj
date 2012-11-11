@@ -58,12 +58,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Comment.cs" />
+    <Compile Include="Classes\Commenter.cs" />
+    <Compile Include="Classes\CommenterHelper.cs" />
     <Compile Include="DllExport\DllExportAttribute.cs" />
-    <Compile Include="Forms\frmAddComment.cs">
+    <Compile Include="Forms\frmComment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAddComment.Designer.cs">
-      <DependentUpon>frmAddComment.cs</DependentUpon>
+    <Compile Include="Forms\frmComment.Designer.cs">
+      <DependentUpon>frmComment.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmCodeAnnotation.cs">
       <SubType>Form</SubType>
@@ -83,8 +86,8 @@
     <Compile Include="UnmanagedExports.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\frmAddComment.resx">
-      <DependentUpon>frmAddComment.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmComment.resx">
+      <DependentUpon>frmComment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCodeAnnotation.resx">
       <DependentUpon>frmCodeAnnotation.cs</DependentUpon>

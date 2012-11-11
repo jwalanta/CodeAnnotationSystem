@@ -10,30 +10,32 @@ namespace NppPluginNET
 {
     public partial class frmAddComment : Form
     {
+        private Comment m_Comment = new Comment();
 
-        public String comment;
+        public Comment Comment
+        {
+            get { return m_Comment; }
+            set { m_Comment = value; }
+        }
 
         public frmAddComment()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void frmAddComment_Load(object sender, EventArgs e)
         {
-            this.comment = this.txtComment.Text;
-            this.Hide();
+
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.txtComment.Text = "";
-            this.comment = "";
+            this.Comment.CommentText = txtComment.Text.Trim();
         }
 
         public void clearText()
         {
-            this.txtComment.Text = "";
-            this.Hide();
+            this.txtComment.Text = string.Empty;
         }
     }
 }
