@@ -61,7 +61,7 @@ namespace NppPluginNET
 
         public void bufferChanged()
         {
-            MessageBox.Show("Buffer Changed", "!!");
+            //MessageBox.Show("Buffer Changed", "!!");
         }
     }
 }
