@@ -54,6 +54,7 @@
             this.btnReport.TabIndex = 2;
             this.btnReport.Text = "Report";
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -85,6 +86,8 @@
             this.lstComments.Name = "lstComments";
             this.lstComments.Size = new System.Drawing.Size(284, 730);
             this.lstComments.TabIndex = 0;
+            this.lstComments.SelectedIndexChanged += new System.EventHandler(this.lstComments_SelectedIndexChanged);
+            this.lstComments.DoubleClick += new System.EventHandler(this.lstComments_DoubleClick);
             // 
             // btnAddComment
             // 
@@ -104,6 +107,7 @@
             this.btnDeleteComment.TabIndex = 2;
             this.btnDeleteComment.Text = "Delete";
             this.btnDeleteComment.UseVisualStyleBackColor = true;
+            this.btnDeleteComment.Click += new System.EventHandler(this.btnDeleteComment_Click);
             // 
             // frmCodeAnnotation
             // 

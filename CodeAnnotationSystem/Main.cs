@@ -16,8 +16,8 @@ namespace NppPluginNET
         static bool someSetting = false;
         static frmCodeAnnotation frmDockDlg = null;
         static int idMyDlg = -1;
-        static Bitmap tbBmp =  Properties.Resources.star;
-        static Bitmap tbBmp_tbTab = Properties.Resources.star_bmp;
+        static Bitmap tbBmp = CodeAnnotationSystem.Properties.Resources.star;
+        static Bitmap tbBmp_tbTab = CodeAnnotationSystem.Properties.Resources.star_bmp;
         static Icon tbIcon = null;
         #endregion
 

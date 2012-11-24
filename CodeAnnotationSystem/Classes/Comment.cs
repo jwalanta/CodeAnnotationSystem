@@ -60,14 +60,34 @@ namespace NppPluginNET
             { 
                 return string.Format
                 (
-                    "{0},{1}-{2},{3}:{4}", 
-                    this.m_StartLine, 
-                    this.m_StartColumn, 
-                    this.m_EndLine, 
-                    this.m_EndColumn, 
+                    "[{0},{1}-{2},{3}: {4}]", 
+                    this.m_StartLine + 1, 
+                    this.m_StartColumn + 1, 
+                    this.m_EndLine + 1, 
+                    this.m_EndColumn + 1, 
                     this.m_CommentText
                 ); 
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder commentString = new StringBuilder();
+
+            commentString.AppendLine
+            (
+                string.Format
+                (
+                    "[Line: {0},{1} to {2},{3}]",
+                    this.m_StartLine,
+                    this.m_StartColumn,
+                    this.m_EndLine,
+                    this.m_EndColumn
+                )
+            );
+            commentString.Append(m_CommentText);
+
+            return commentString.ToString();
         }
     }
 }
