@@ -172,24 +172,31 @@ namespace NppPluginNET
 
         private void lstComments_DoubleClick(object sender, EventArgs e)
         {
-            int intSelection = (int)lstComments.SelectedIndex;
-
-            Comment comment = new Comment();
-
-            comment = file.Comments[intSelection];
-
-            using (frmAddComment frm = new frmAddComment())
+            try
             {
-                frm.loadCommentText(comment.CommentText);
+                int intSelection = (int)lstComments.SelectedIndex;
 
-                if (frm.ShowDialog() == DialogResult.OK)
+                Comment comment = new Comment();
+
+                comment = file.Comments[intSelection];
+
+                using (frmAddComment frm = new frmAddComment())
                 {
-                    comment.CommentText = frm.Comment.CommentText;
+                    frm.loadCommentText(comment.CommentText);
 
-                    file.UpdateComment(comment);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        comment.CommentText = frm.Comment.CommentText;
 
-                    bindComment();
+                        file.UpdateComment(comment);
+
+                        bindComment();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
