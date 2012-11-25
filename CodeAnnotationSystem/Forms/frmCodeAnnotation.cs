@@ -19,6 +19,8 @@ namespace NppPluginNET
             file = new CommentFile();
 
             bufferChanged();
+
+            lstComments.SelectedIndex = -1;
         }
 
         private void bindComment()
