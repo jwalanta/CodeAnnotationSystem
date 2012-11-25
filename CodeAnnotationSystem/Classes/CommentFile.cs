@@ -16,6 +16,7 @@ namespace NppPluginNET
             get { return m_FileName; }
             set { m_FileName = value; }
         }
+
         private List<Comment> m_Comments = new List<Comment>();
 
         public List<Comment> Comments
@@ -46,7 +47,6 @@ namespace NppPluginNET
 
         public Comment AddComment(Comment comment)
         {
-
             int newID = m_Comments.Count + 1;
 
             comment.ID = newID;
@@ -75,6 +75,7 @@ namespace NppPluginNET
         public void SaveComments()
         {
             int count = 1;
+
             XDocument document = new XDocument
             (
                 new XElement
@@ -103,7 +104,9 @@ namespace NppPluginNET
             m_Comments.Clear();
 
             FileInfo file = new FileInfo(m_FileName);
-            if (!file.Exists) return;
+
+            if (!file.Exists) 
+                return;
 
             var comments = from p in XDocument.Load(m_FileName).Elements("Comments")
                                 .Elements("Comment")
@@ -116,7 +119,8 @@ namespace NppPluginNET
                                EndColumn = (int)p.Element("EndColumn"),
                                CommentText = (string)p.Element("CommentText")
                            };
-            m_Comments = comments.ToList<Comment>();            
+
+            m_Comments = comments.ToList<Comment>();
         }
 
         public string Report()
