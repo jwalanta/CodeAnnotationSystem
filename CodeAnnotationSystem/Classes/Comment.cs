@@ -13,7 +13,7 @@ namespace NppPluginNET
             get { return m_ID; }
             set { m_ID = value; }
         }
-        
+
         private int m_StartLine = 0;
 
         public int StartLine
@@ -56,17 +56,17 @@ namespace NppPluginNET
 
         public string ComboText
         {
-            get 
-            { 
+            get
+            {
                 return string.Format
                 (
-                    "[{0},{1}-{2},{3}: {4}]", 
-                    this.m_StartLine + 1, 
-                    this.m_StartColumn + 1, 
-                    this.m_EndLine + 1, 
-                    this.m_EndColumn + 1, 
+                    "[{0},{1}-{2},{3}]: {4}",
+                    this.m_StartLine + 1,
+                    this.m_StartColumn + 1,
+                    this.m_EndLine + 1,
+                    this.m_EndColumn + 1,
                     this.m_CommentText
-                ); 
+                );
             }
         }
 
@@ -79,10 +79,10 @@ namespace NppPluginNET
                 string.Format
                 (
                     "[Line: {0},{1} to {2},{3}]",
-                    this.m_StartLine,
-                    this.m_StartColumn,
-                    this.m_EndLine,
-                    this.m_EndColumn
+                    this.m_StartLine + 1, 
+                    this.m_StartColumn + 1, 
+                    this.m_EndLine + 1,
+                    this.m_EndColumn + 1
                 )
             );
             commentString.Append(m_CommentText);
