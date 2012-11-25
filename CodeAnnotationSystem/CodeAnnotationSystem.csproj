@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Comment.cs" />
-    <Compile Include="Classes\CommentFile.cs" />
+    <Compile Include="Classes\File.cs" />
     <Compile Include="DllExport\DllExportAttribute.cs" />
     <Compile Include="Forms\frmComment.cs">
       <SubType>Form</SubType>

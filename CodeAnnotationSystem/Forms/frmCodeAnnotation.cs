@@ -10,13 +10,13 @@ namespace NppPluginNET
 {
     public partial class frmCodeAnnotation : Form
     {
-        private CommentFile file = null;
+        private File file = null;
 
         public frmCodeAnnotation()
         {
             InitializeComponent();
 
-            file = new CommentFile();
+            file = new File();
 
             bufferChanged();
 

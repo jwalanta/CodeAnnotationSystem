@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace NppPluginNET
 {
-    public class CommentFile
+    public class File
     {
         private string m_FileName = "";
 
