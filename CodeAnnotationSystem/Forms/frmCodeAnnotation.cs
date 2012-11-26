@@ -19,11 +19,9 @@ namespace NppPluginNET
             file = new File();
 
             bufferChanged();
-
-            lstComments.SelectedIndex = -1;
         }
 
-        private void bindComment()
+        private void bindComments()
         {
             lstComments.DataSource = null;
             lstComments.Items.Clear();
@@ -56,7 +54,7 @@ namespace NppPluginNET
                     {
                         file.AddComment(selectionStartLine, selectionEndLine, selectionStartCol, selectionEndCol, frm.Comment.CommentText);
 
-                        bindComment();
+                        bindComments();
 
                         // Highlight 
                         Win32.SendMessage(curScintilla, SciMsg.SCI_INDICSETSTYLE, 20, 7);
@@ -95,7 +93,7 @@ namespace NppPluginNET
 
                  file.LoadComments();
 
-                 bindComment();
+                 bindComments();
 
                  // highlight all comments
                  curScintilla = PluginBase.GetCurrentScintilla();
@@ -158,7 +156,7 @@ namespace NppPluginNET
 
                 file.DeleteComment(comment);
 
-                bindComment();
+                bindComments();
             }
             catch (Exception ex)
             {
@@ -190,7 +188,7 @@ namespace NppPluginNET
 
                         file.UpdateComment(comment);
 
-                        bindComment();
+                        bindComments();
                     }
                 }
             }
@@ -215,6 +213,7 @@ namespace NppPluginNET
                 if (intSelection >= 0)
                 {
                     Comment comment = new Comment();
+
                     comment = file.Comments[intSelection];
 
                     // get selection start and end from comment
@@ -235,6 +234,16 @@ namespace NppPluginNET
                     // select the segment
                     Win32.SendMessage(curScintilla, SciMsg.SCI_SETSELECTIONSTART, selectionStartPos, 0);
                     Win32.SendMessage(curScintilla, SciMsg.SCI_SETSELECTIONEND, selectionEndPos, 0);
+                }
+                else
+                {
+                    // goto the starting line
+                    Win32.SendMessage(curScintilla, SciMsg.SCI_GOTOLINE, 100, 0);
+                    Win32.SendMessage(curScintilla, SciMsg.SCI_GOTOLINE, -1, 0);
+                    Win32.SendMessage(curScintilla, SciMsg.SCI_GRABFOCUS, 0, 0);
+
+                    Win32.SendMessage(curScintilla, SciMsg.SCI_SETSELECTIONSTART, 0, 0);
+                    Win32.SendMessage(curScintilla, SciMsg.SCI_SETSELECTIONEND, 0, 0);
                 }
             }
             catch (Exception ex)
