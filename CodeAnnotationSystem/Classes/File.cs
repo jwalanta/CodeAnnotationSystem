@@ -117,7 +117,7 @@ namespace NppPluginNET
                                EndLine = (int)p.Element("EndLine"),
                                StartColumn = (int)p.Element("StartColumn"),
                                EndColumn = (int)p.Element("EndColumn"),
-                               CommentText = (string)p.Element("CommentText")
+                               CommentText = ((string)p.Element("CommentText")).Replace("\r\n", "\n").Replace("\n", "\r\n")
                            };
 
             m_Comments = comments.ToList<Comment>();
