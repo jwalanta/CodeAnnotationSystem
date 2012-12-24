@@ -42,6 +42,8 @@ namespace NppPluginNET
 
             SaveComments();
 
+            LoadComments();
+
             return comment;
         }
 
@@ -55,6 +57,8 @@ namespace NppPluginNET
 
             SaveComments();
 
+            LoadComments();
+
             return comment;
         }
 
@@ -63,6 +67,8 @@ namespace NppPluginNET
             m_Comments[comment.ID - 1] = comment;
 
             SaveComments();
+
+            LoadComments();
         }
 
         public void DeleteComment(Comment comment)
@@ -70,6 +76,8 @@ namespace NppPluginNET
             m_Comments.Remove(comment);
 
             SaveComments();
+
+            LoadComments();
         }
 
         public void SaveComments()
